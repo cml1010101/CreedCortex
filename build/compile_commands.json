@@ -1,0 +1,26 @@
+[
+{
+  "directory": "/home/cml/Projects/C++/MachineLearning/CreedCortex/build",
+  "command": "/usr/bin/g++ -DUSE_CUDA -I/home/cml/Projects/C++/MachineLearning/CreedCortex/include -g -o CMakeFiles/CreedCortex.dir/src/CreedMatrix.cpp.o -c /home/cml/Projects/C++/MachineLearning/CreedCortex/src/CreedMatrix.cpp",
+  "file": "/home/cml/Projects/C++/MachineLearning/CreedCortex/src/CreedMatrix.cpp",
+  "output": "CMakeFiles/CreedCortex.dir/src/CreedMatrix.cpp.o"
+},
+{
+  "directory": "/home/cml/Projects/C++/MachineLearning/CreedCortex/build",
+  "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler -DUSE_CUDA --options-file CMakeFiles/CreedCortex.dir/includes_CUDA.rsp -g \"--generate-code=arch=compute_75,code=[sm_75]\" -x cu -c /home/cml/Projects/C++/MachineLearning/CreedCortex/src/CreedCUDA.cu -o CMakeFiles/CreedCortex.dir/src/CreedCUDA.cu.o",
+  "file": "/home/cml/Projects/C++/MachineLearning/CreedCortex/src/CreedCUDA.cu",
+  "output": "CMakeFiles/CreedCortex.dir/src/CreedCUDA.cu.o"
+},
+{
+  "directory": "/home/cml/Projects/C++/MachineLearning/CreedCortex/build",
+  "command": "/usr/bin/g++  -I/home/cml/Projects/C++/MachineLearning/CreedCortex/include -g -o CMakeFiles/BasicTest.dir/test/BasicTest.cpp.o -c /home/cml/Projects/C++/MachineLearning/CreedCortex/test/BasicTest.cpp",
+  "file": "/home/cml/Projects/C++/MachineLearning/CreedCortex/test/BasicTest.cpp",
+  "output": "CMakeFiles/BasicTest.dir/test/BasicTest.cpp.o"
+},
+{
+  "directory": "/home/cml/Projects/C++/MachineLearning/CreedCortex/build",
+  "command": "/usr/bin/nvcc -forward-unknown-to-host-compiler  --options-file CMakeFiles/BasicTest.dir/includes_CUDA.rsp -g \"--generate-code=arch=compute_52,code=[compute_52,sm_52]\" -x cu -c /home/cml/Projects/C++/MachineLearning/CreedCortex/src/CreedCUDA.cu -o CMakeFiles/BasicTest.dir/src/CreedCUDA.cu.o",
+  "file": "/home/cml/Projects/C++/MachineLearning/CreedCortex/src/CreedCUDA.cu",
+  "output": "CMakeFiles/BasicTest.dir/src/CreedCUDA.cu.o"
+}
+]

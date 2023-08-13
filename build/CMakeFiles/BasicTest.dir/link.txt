@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/BasicTest.dir/test/BasicTest.cpp.o CMakeFiles/BasicTest.dir/src/CreedCUDA.cu.o -o BasicTest   -L/usr/lib/x86_64-linux-gnu/stubs  libCreedCortex.a -lcudadevrt -lcudart_static -lrt -lpthread -ldl 
