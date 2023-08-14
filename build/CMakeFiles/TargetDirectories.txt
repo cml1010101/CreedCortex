@@ -1,4 +1,0 @@
-/home/cml/Projects/C++/MachineLearning/CreedCortex/build/CMakeFiles/CreedCortex.dir
-/home/cml/Projects/C++/MachineLearning/CreedCortex/build/CMakeFiles/BasicTest.dir
-/home/cml/Projects/C++/MachineLearning/CreedCortex/build/CMakeFiles/edit_cache.dir
-/home/cml/Projects/C++/MachineLearning/CreedCortex/build/CMakeFiles/rebuild_cache.dir

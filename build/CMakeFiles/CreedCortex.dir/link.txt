@@ -1,2 +1,0 @@
-/usr/bin/ar qc libCreedCortex.a CMakeFiles/CreedCortex.dir/src/CreedMatrix.cpp.o CMakeFiles/CreedCortex.dir/src/CreedCUDA.cu.o
-/usr/bin/ranlib libCreedCortex.a
