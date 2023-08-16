@@ -6,14 +6,14 @@ namespace creed
     class Layer
     {
     protected:
-        std::map<std::string, Matrix> parameters;
-        std::map<std::string, Matrix> parameterGradients;
+        std::vector<Matrix*> parameters;
+        std::vector<Matrix*> parameterGradients;
     public:
         Layer() = default;
         virtual Matrix forward(Matrix x) = 0;
         virtual Matrix backward(Matrix yGrad) = 0;
-        std::map<std::string, Matrix> getParameters();
-        std::map<std::string, Matrix> getParameterGradients();
+        std::vector<Matrix*> getParameters();
+        std::vector<Matrix*> getParameterGradients();
     };
 }
 #endif

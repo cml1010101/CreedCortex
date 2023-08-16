@@ -1,11 +1,10 @@
 #include <CreedLayer.hpp>
 using namespace creed;
-std::map<std::string, Matrix> Layer::getParameters()
+std::vector<Matrix*> Layer::getParameters()
 {
     return parameters;
-
 }
-std::map<std::string, Matrix> Layer::getParameterGradients()
+std::vector<Matrix*> Layer::getParameterGradients()
 {
     return parameterGradients;
 }

@@ -4,13 +4,14 @@ using namespace creed;
 using namespace std;
 int main(int argc, const char* argv[])
 {
-    Matrix mat(3, 3);
-    mat <<  1, 2, 3,
-            4, 5, 6,
-            7, 8, 9;
-    Matrix otherMat(1, 3);
-    otherMat << 2, 2, 2;
-    cout << mat.cross(mat) << endl;
-    // cout << mat.cross(otherMat) << endl;
+    xt::random::seed(123);
+    Dense dense = Dense(3);
+    Sigmoid sigmoid = Sigmoid();
+    Matrix in = xt::random::rand({6}, -1.0);
+    cout << in << endl;
+    Matrix out = sigmoid.forward(dense.forward(in));
+    cout << out << endl;
+    Matrix grad = dense.backward(sigmoid.backward(out - xt::random::rand({3}, -1.0)));
+    cout << grad << endl;
     return 0;
 }

@@ -12,8 +12,8 @@ namespace creed
     public:
         Dense() = default;
         Dense(size_t size);
-        virtual Matrix forward(Matrix x);
-        virtual Matrix backward(Matrix yGrad);
+        virtual Matrix forward(Matrix x) override;
+        virtual Matrix backward(Matrix yGrad) override;
     };
 }
 #endif
