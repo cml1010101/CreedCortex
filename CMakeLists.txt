@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.27)
 project(CreedCortex VERSION 0.1.0 LANGUAGES CXX)
+option(LINK_DATASETS "Whether to link the datasets directly to the library" ON)
 option(BUILD_TESTS "Whether to build test applications" ON)
 find_package(xtensor REQUIRED)
 find_package(xtensor-blas REQUIRED)
@@ -7,6 +8,21 @@ add_library(CreedCortex "src/CreedLayer.cpp" "src/CreedDense.cpp" "src/CreedActi
     "src/CreedMSE.cpp" "src/CreedSimpleDerivative.cpp" "src/CreedSGD.cpp" "src/CreedAccuracy.cpp")
 target_link_libraries(CreedCortex PUBLIC xtensor xtensor-blas)
 install(FILES "datasets/mnist.csv" DESTINATION share)
+if(LINK_DATASETS)
+    message("Linking datasets")
+    function(generate_elf_from_binary INPUT_BINARY TARGET)
+        add_custom_command(
+            OUTPUT ${OUTPUT_ELF}
+            COMMAND ${CMAKE_OBJCOPY} -O elf64-x86-64 -B i386 -I binary ${INPUT_BINARY} ${INPUT_BINARY}.o
+            DEPENDS ${INPUT_BINARY}
+            COMMENT "Generating ELF from binary: ${INPUT_BINARY} -> ${INPUT_BINARY}.o"
+            VERBATIM
+            TARGET CreedCortex
+        )
+        target_link_libraries(${TARGET} PRIVATE ${INPUT_BINARY}.o)
+    endfunction()
+    generate_elf_from_binary("datasets/mnist.csv" CreedCortex)
+endif()
 if(BUILD_TESTS)
     message("Building tests")
     add_executable(BasicTest "test/BasicTest.cpp")
