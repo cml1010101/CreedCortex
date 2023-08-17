@@ -4,22 +4,25 @@ option(LINK_DATASETS "Whether to link the datasets directly to the library" ON)
 option(BUILD_TESTS "Whether to build test applications" ON)
 find_package(xtensor REQUIRED)
 find_package(xtensor-blas REQUIRED)
-add_library(CreedCortex "src/CreedLayer.cpp" "src/CreedDense.cpp" "src/CreedActivations.cpp" "src/CreedSequential.cpp"
-    "src/CreedMSE.cpp" "src/CreedSimpleDerivative.cpp" "src/CreedSGD.cpp" "src/CreedAccuracy.cpp")
+add_library(CreedCortex SHARED "src/CreedLayer.cpp" "src/CreedDense.cpp" "src/CreedActivations.cpp" "src/CreedSequential.cpp"
+    "src/CreedMSE.cpp" "src/CreedSimpleDerivative.cpp" "src/CreedSGD.cpp" "src/CreedAccuracy.cpp" "src/CreedMNIST.cpp")
 target_link_libraries(CreedCortex PUBLIC xtensor xtensor-blas)
 install(FILES "datasets/mnist.csv" DESTINATION share)
 if(LINK_DATASETS)
     message("Linking datasets")
     function(generate_elf_from_binary INPUT_BINARY TARGET)
-        add_custom_command(
-            OUTPUT ${OUTPUT_ELF}
-            COMMAND ${CMAKE_OBJCOPY} -O elf64-x86-64 -B i386 -I binary ${INPUT_BINARY} ${INPUT_BINARY}.o
-            DEPENDS ${INPUT_BINARY}
-            COMMENT "Generating ELF from binary: ${INPUT_BINARY} -> ${INPUT_BINARY}.o"
-            VERBATIM
-            TARGET CreedCortex
+        execute_process(
+            COMMAND dirname ${INPUT_BINARY}.o
+            OUTPUT_VARIABLE DIRECTORY
+            OUTPUT_STRIP_TRAILING_WHITESPACE
         )
-        target_link_libraries(${TARGET} PRIVATE ${INPUT_BINARY}.o)
+        MESSAGE("Making directory ${DIRECTORY}")
+        add_custom_command(OUTPUT ${INPUT_BINARY}.o
+            COMMAND cd ${CMAKE_CURRENT_SOURCE_DIR} && mkdir -p ${CMAKE_CURRENT_BINARY_DIR}/${DIRECTORY} &&
+                ld -r -b binary -o ${CMAKE_CURRENT_BINARY_DIR}/${INPUT_BINARY}.o ${INPUT_BINARY}
+            COMMAND objcopy --rename-section .data=.rodata,alloc,load,readonly,data,contents
+                ${CMAKE_CURRENT_BINARY_DIR}/${INPUT_BINARY}.o ${CMAKE_CURRENT_BINARY_DIR}/${INPUT_BINARY}.o)
+        target_sources(${TARGET} PRIVATE ${INPUT_BINARY}.o)
     endfunction()
     generate_elf_from_binary("datasets/mnist.csv" CreedCortex)
 endif()

@@ -7,6 +7,7 @@
 #include <CreedLayer.hpp>
 #include <CreedLoss.hpp>
 #include <CreedMetric.hpp>
+#include <CreedMNIST.hpp>
 #include <CreedMSE.hpp>
 #include <CreedOptimizer.hpp> 
 #include <CreedSequential.hpp>
