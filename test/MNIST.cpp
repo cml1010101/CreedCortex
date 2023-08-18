@@ -7,11 +7,11 @@ int main(int argc, const char* argv[])
     xt::random::seed(123);
     Sequential model = Sequential(
         {
-            make_shared<Dense>(392),
+            make_shared<Dense>(392, make_shared<Glorot>()),
             make_shared<Sigmoid>(),
-            make_shared<Dense>(196),
+            make_shared<Dense>(196, make_shared<Glorot>()),
             make_shared<Sigmoid>(),
-            make_shared<Dense>(10),
+            make_shared<Dense>(10, make_shared<Glorot>()),
             make_shared<Sigmoid>(),
         }
     );
@@ -21,7 +21,7 @@ int main(int argc, const char* argv[])
         file >> model;
         file.close();
     }
-    auto data = loadMNIST(1, 100, 200);
+    auto data = loadMNIST(500, 100, 200);
     auto xTrain = std::get<0>(data);
     auto yTrain = std::get<1>(data);
     auto xTest = std::get<2>(data);

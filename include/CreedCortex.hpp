@@ -4,6 +4,7 @@
 #include <CreedActivations.hpp>
 #include <CreedCore.hpp>
 #include <CreedDense.hpp>
+#include <CreedGlorot.hpp>
 #include <CreedLayer.hpp>
 #include <CreedLoss.hpp>
 #include <CreedMetric.hpp>
@@ -13,4 +14,6 @@
 #include <CreedSequential.hpp>
 #include <CreedSGD.hpp>
 #include <CreedSimpleDerivative.hpp>
+#include <CreedStandardDistribution.hpp>
+#include <CreedWeightInitializer.hpp>
 #endif

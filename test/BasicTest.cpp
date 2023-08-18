@@ -5,7 +5,7 @@ using namespace std;
 int main(int argc, const char* argv[])
 {
     xt::random::seed(123);
-    Dense dense = Dense(3);
+    Dense dense = Dense(3, make_shared<Glorot>());
     Sigmoid sigmoid = Sigmoid();
     Matrix in = xt::random::rand({6}, -1.0);
     cout << in << endl;
