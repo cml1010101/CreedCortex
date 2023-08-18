@@ -7,15 +7,21 @@ int main(int argc, const char* argv[])
     xt::random::seed(123);
     Sequential model = Sequential(
         {
-            std::make_shared<Dense>(392),
-            std::make_shared<Sigmoid>(),
-            std::make_shared<Dense>(196),
-            std::make_shared<Sigmoid>(),
-            std::make_shared<Dense>(10),
-            std::make_shared<Sigmoid>(),
+            make_shared<Dense>(392),
+            make_shared<Sigmoid>(),
+            make_shared<Dense>(196),
+            make_shared<Sigmoid>(),
+            make_shared<Dense>(10),
+            make_shared<Sigmoid>(),
         }
     );
-    auto data = loadMNIST(500, 100, 200);
+    if (filesystem::exists("mnist.json"))
+    {
+        std::ifstream file("mnist.json");
+        file >> model;
+        file.close();
+    }
+    auto data = loadMNIST(1, 100, 200);
     auto xTrain = std::get<0>(data);
     auto yTrain = std::get<1>(data);
     auto xTest = std::get<2>(data);
@@ -26,5 +32,10 @@ int main(int argc, const char* argv[])
             cout << "Error: " << error[0] << endl << "Accuracy: " << error[1] * 100 << "%" << endl;
         }
     );
+    {
+        std::ofstream file("mnist.json");
+        file << model;
+        file.close();
+    }
     return 0;
 }

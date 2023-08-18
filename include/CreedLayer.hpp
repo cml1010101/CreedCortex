@@ -14,6 +14,12 @@ namespace creed
         virtual Matrix backward(Matrix yGrad) = 0;
         std::vector<Matrix*> getParameters();
         std::vector<Matrix*> getParameterGradients();
+        friend std::ostream& operator<<(std::ostream& out, const Layer& layer);
+        friend std::ostream& operator<<(std::ostream& out, Layer&& layer);
+        friend std::istream& operator>>(std::istream& out, Layer& layer);
     };
+    std::ostream& operator<<(std::ostream& out, const Layer& layer);
+    std::ostream& operator<<(std::ostream& out, Layer&& layer);
+    std::istream& operator>>(std::istream& out, Layer& layer);
 }
 #endif

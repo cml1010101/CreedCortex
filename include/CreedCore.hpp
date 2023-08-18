@@ -7,6 +7,8 @@
 #include <xtensor/xcsv.hpp>
 #include <xtensor/xsort.hpp>
 #include <xtensor/xadapt.hpp>
+#include <xtensor/xjson.hpp>
+#include <nlohmann/json.hpp>
 #include <xtensor-blas/xlinalg.hpp>
 namespace creed
 {
