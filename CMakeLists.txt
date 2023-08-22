@@ -4,9 +4,19 @@ option(LINK_DATASETS "Whether to link the datasets directly to the library" ON)
 option(BUILD_TESTS "Whether to build test applications" ON)
 find_package(xtensor REQUIRED)
 find_package(xtensor-blas REQUIRED)
-add_library(CreedCortex SHARED "src/CreedLayer.cpp" "src/CreedDense.cpp" "src/CreedActivations.cpp" "src/CreedSequential.cpp"
-    "src/CreedMSE.cpp" "src/CreedSimpleDerivative.cpp" "src/CreedSGD.cpp" "src/CreedAccuracy.cpp" "src/CreedMNIST.cpp"
-    "src/CreedStandardDistribution.cpp" "src/CreedGlorot.cpp")
+add_library(CreedCortex SHARED
+    "src/CreedLayer.cpp"
+    "src/CreedDense.cpp"
+    "src/CreedActivations.cpp"
+    "src/CreedSequential.cpp"
+    "src/CreedMSE.cpp"
+    "src/CreedSimpleDerivative.cpp"
+    "src/CreedSGD.cpp"
+    "src/CreedAccuracy.cpp"
+    "src/CreedMNIST.cpp"
+    "src/CreedStandardDistribution.cpp"
+    "src/CreedGlorot.cpp"
+)
 target_link_libraries(CreedCortex PUBLIC xtensor xtensor-blas)
 install(FILES "datasets/mnist.csv" DESTINATION share)
 if(LINK_DATASETS)
