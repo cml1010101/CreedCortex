@@ -27,7 +27,7 @@ int main(int argc, const char* argv[])
     auto xTest = std::get<2>(data);
     auto yTest = std::get<3>(data);
     model.fit(1, xTrain, yTrain, xTest, yTest, {new CrossEntropy(), new Accuracy()}, new SimpleDerivative(),
-        new SGD(0.01),
+        new Adam(0.01, 0.9, 0.999),
         [](size_t epoch, size_t batch, Matrix error) {
             cout << "Epoch #" << epoch + 1 << ", batch #" << batch + 1 << endl;
             cout << "Error: " << error[0] << endl << "Accuracy: " << error[1] * 100 << "%" << endl;
