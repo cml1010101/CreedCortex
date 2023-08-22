@@ -6,7 +6,7 @@ find_package(xtensor REQUIRED)
 find_package(xtensor-blas REQUIRED)
 add_library(CreedCortex SHARED "src/CreedLayer.cpp" "src/CreedDense.cpp" "src/CreedActivations.cpp" "src/CreedSequential.cpp"
     "src/CreedMSE.cpp" "src/CreedSimpleDerivative.cpp" "src/CreedSGD.cpp" "src/CreedAccuracy.cpp" "src/CreedMNIST.cpp"
-    "src/CreedStandardDistribution.cpp" "src/CreedGlorot.cpp")
+    "src/CreedStandardDistribution.cpp" "src/CreedGlorot.cpp" "src/CreedSGDMomentum.cpp" "src/CreedCrossEntropy.cpp")
 target_link_libraries(CreedCortex PUBLIC xtensor xtensor-blas)
 install(FILES "datasets/mnist.csv" DESTINATION share)
 if(LINK_DATASETS)

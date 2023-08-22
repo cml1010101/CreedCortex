@@ -3,6 +3,7 @@
 #include <CreedAccuracy.hpp>
 #include <CreedActivations.hpp>
 #include <CreedCore.hpp>
+#include <CreedCrossEntropy.hpp>
 #include <CreedDense.hpp>
 #include <CreedGlorot.hpp>
 #include <CreedLayer.hpp>
@@ -13,6 +14,7 @@
 #include <CreedOptimizer.hpp> 
 #include <CreedSequential.hpp>
 #include <CreedSGD.hpp>
+#include <CreedSGDMomentum.hpp>
 #include <CreedSimpleDerivative.hpp>
 #include <CreedStandardDistribution.hpp>
 #include <CreedWeightInitializer.hpp>
