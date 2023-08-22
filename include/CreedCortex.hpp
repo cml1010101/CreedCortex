@@ -2,6 +2,7 @@
 #define CREEDCORTEX_HPP
 #include <CreedAccuracy.hpp>
 #include <CreedActivations.hpp>
+#include <CreedAdam.hpp>
 #include <CreedCore.hpp>
 #include <CreedCrossEntropy.hpp>
 #include <CreedDense.hpp>
