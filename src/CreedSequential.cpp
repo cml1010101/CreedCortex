@@ -90,3 +90,15 @@ void Sequential::fit(size_t epochs, Matrix xTrain, Matrix yTrain, Matrix xTest, 
         }
     }
 }
+Sequential& Sequential::operator<<(std::shared_ptr<Layer> layer)
+{
+    layers.push_back(layer);
+    parameters.reserve(parameters.size() + layer->getParameters().size());
+    auto layerParameters = layer->getParameters();
+    parameters.insert(parameters.end(), layerParameters.begin(), layerParameters.end());
+    parameterGradients.reserve(parameterGradients.size() + layer->getParameterGradients().size());
+    auto layerParameterGradients = layer->getParameterGradients();
+    parameterGradients.insert(parameterGradients.end(), layerParameterGradients.begin(),
+        layerParameterGradients.end());
+    return *this;
+}

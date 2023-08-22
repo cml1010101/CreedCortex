@@ -22,6 +22,7 @@ namespace creed
         virtual void updateParameters(Optimizer* optimizer);
         virtual void fit(size_t epochs, Matrix xTrain, Matrix yTrain, Matrix xTest, Matrix yTest, std::vector<Metric*> metrics,
             Loss* loss, Optimizer* optimizer, std::function<void(size_t, size_t, Matrix)> testBatchCallback);
+        virtual Sequential& operator<<(std::shared_ptr<Layer> layer);
     };
 }
 #endif

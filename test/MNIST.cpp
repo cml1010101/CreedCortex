@@ -5,16 +5,13 @@ using namespace std;
 int main(int argc, const char* argv[])
 {
     xt::random::seed(123);
-    Sequential model = Sequential(
-        {
-            make_shared<Dense>(392, make_shared<Glorot>()),
-            make_shared<Sigmoid>(),
-            make_shared<Dense>(196, make_shared<Glorot>()),
-            make_shared<Sigmoid>(),
-            make_shared<Dense>(10, make_shared<Glorot>()),
-            make_shared<Softmax>(),
-        }
-    );
+    Sequential model;
+    model << make_shared<Dense>(392, make_shared<Glorot>())
+        << make_shared<Sigmoid>()
+        << make_shared<Dense>(196, make_shared<Glorot>())
+        << make_shared<Sigmoid>()
+        << make_shared<Dense>(10, make_shared<Glorot>())
+        << make_shared<Softmax>();
     if (filesystem::exists("mnist.json"))
     {
         std::ifstream file("mnist.json");
