@@ -23,5 +23,12 @@ namespace creed
         virtual Matrix forward(Matrix x) override;
         virtual Matrix backward(Matrix yGrad) override;
     };
+    class Softmax : public Layer
+    {
+    public:
+        Softmax() = default;
+        virtual Matrix forward(Matrix x) override;
+        virtual Matrix backward(Matrix yGrad) override;
+    };
 }
 #endif

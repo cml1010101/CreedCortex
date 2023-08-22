@@ -25,3 +25,11 @@ Matrix ReLU::backward(Matrix yGrad)
 {
     return xt::vectorize(ReLU::backward)(this->x, yGrad);
 }
+Matrix Softmax::forward(Matrix x)
+{
+    return xt::exp(x) / xt::sum(xt::exp(x));
+}
+Matrix Softmax::backward(Matrix yGrad)
+{
+    return yGrad;
+}
