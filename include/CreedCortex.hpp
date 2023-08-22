@@ -14,6 +14,7 @@
 #include <CreedOptimizer.hpp> 
 #include <CreedSequential.hpp>
 #include <CreedSGD.hpp>
+#include <CreedSGDMomentum.hpp>
 #include <CreedSimpleDerivative.hpp>
 #include <CreedStandardDistribution.hpp>
 #include <CreedWeightInitializer.hpp>
