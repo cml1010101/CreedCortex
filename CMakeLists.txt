@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.24)
 project(CreedCortex VERSION 0.1.0 LANGUAGES CXX)
 option(LINK_DATASETS "Whether to link the datasets directly to the library" ON)
 option(BUILD_TESTS "Whether to build test applications" ON)
