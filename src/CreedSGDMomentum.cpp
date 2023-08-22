@@ -4,6 +4,7 @@ void SGDMomentum::optimize(std::vector<Matrix*> parameters, std::vector<Matrix*>
 {
     if (velocity.size() != parameters.size())
     {
+        velocity.clear();
         for (size_t i = 0; i < parameters.size(); i++)
         {
             velocity.push_back(xt::zeros<double>(parameters[i]->shape()));
