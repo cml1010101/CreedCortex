@@ -3,6 +3,7 @@
 #include <CreedAccuracy.hpp>
 #include <CreedActivations.hpp>
 #include <CreedCore.hpp>
+#include <CreedCrossEntropy.hpp>
 #include <CreedDense.hpp>
 #include <CreedGlorot.hpp>
 #include <CreedLayer.hpp>

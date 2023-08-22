@@ -16,6 +16,7 @@ add_library(CreedCortex SHARED
     "src/CreedMNIST.cpp"
     "src/CreedStandardDistribution.cpp"
     "src/CreedGlorot.cpp"
+    "src/CreedCrossEntropy.cpp"
 )
 target_link_libraries(CreedCortex PUBLIC xtensor xtensor-blas)
 install(FILES "datasets/mnist.csv" DESTINATION share)
