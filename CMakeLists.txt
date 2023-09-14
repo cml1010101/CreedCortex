@@ -19,6 +19,7 @@ add_library(CreedCortex SHARED
     "src/CreedSGDMomentum.cpp"
     "src/CreedCrossEntropy.cpp"
     "src/CreedAdam.cpp"
+    "src/CreedConv2D.cpp"
 )
 target_link_libraries(CreedCortex PUBLIC xtensor xtensor-blas)
 install(FILES "datasets/mnist.csv" DESTINATION share)
